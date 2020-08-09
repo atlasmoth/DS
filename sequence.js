@@ -1,8 +1,6 @@
 function* sequence() {
-  let count = 0;
   while (true) {
-    count++;
-    yield count;
+    yield Math.round(Math.random() * 100);
   }
 }
 module.exports = sequence;
