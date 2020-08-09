@@ -32,12 +32,60 @@ class Stack {
     this.top = holder.next;
     return holder;
   }
+  isEmpty() {
+    return this.top ? false : true;
+  }
+  peek() {
+    return this.top;
+  }
 }
 
-const stuff = new Stack();
-stuff.push();
-stuff.push();
-stuff.push();
-console.log(stuff.pop());
-console.log(stuff.pop());
-console.log(stuff.pop());
+class Queue {
+  constructor() {
+    this.front = null;
+    this.lastVal = null;
+  }
+  enqueue(node = new Node()) {
+    if (!this.front) {
+      this.front = node;
+      this.lastVal = this.front;
+    }
+    this.lastVal.next = node;
+    let holder = this.lastVal;
+    this.lastVal = holder.next;
+  }
+  dequeue() {
+    if (!this.front) throw new Error("Empty queue");
+    let holder = this.front;
+    if (holder.next) {
+      this.front = holder.next;
+      return holder;
+    } else {
+      this.lastVal = null;
+      this.front = holder.next;
+      return holder;
+    }
+  }
+  peek() {
+    return this.front;
+  }
+  isEmpty() {
+    return this.front ? false : true;
+  }
+}
+
+const stuff = new Queue();
+stuff.enqueue();
+stuff.enqueue();
+stuff.enqueue();
+stuff.enqueue();
+stuff.enqueue();
+
+console.log(stuff.dequeue());
+console.log(stuff.dequeue());
+console.log(stuff.dequeue());
+console.log(stuff.dequeue());
+console.log(stuff.dequeue());
+
+console.log(stuff);
+console.log(stuff.isEmpty());

@@ -4,7 +4,6 @@ const crypto = require("crypto");
 function constant(n) {
   // this is constant this is bloody cool
   let remainder = n % 2;
-  console.log(Math.log2(remainder));
 }
 
 function linear(n = Math.round(Math.random() * 20)) {
@@ -55,9 +54,8 @@ class LinkedList {
 
     const newNode = new Node();
     newNode.update(this.head);
-    console.log(this.head);
+
     this.head = newNode;
-    console.log(newNode);
   }
   search(index) {
     if (!this.head) {
